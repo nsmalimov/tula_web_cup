@@ -1,0 +1,154 @@
+.main-container-second {
+    display: flex;
+    background: black;
+    flex-direction: column;
+    width: 100%;
+
+    height: 300px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.text-modul {
+    display: flex;
+    text-align:center;
+}
+
+.text {
+    /*font-style: Circe;*/
+    font-size: 25px;
+    color: white;
+}
+
+.images-modul {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+
+    width: 50%;
+    height: 150px;
+}
+
+.first-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+}
+
+.second-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+}
+
+.third-block {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+}
+
+.icon-image-first {
+    background-image: url('../../assets/second/1.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 50px 50px;
+
+    align-items: center;
+    justify-content: center;
+
+    background-position: center center;
+}
+
+.icon-text-first {
+    background-image: url('../../assets/second/text1.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 100px 100px;
+
+    background-position: center center;
+}
+
+.icon-image-second {
+    background-image: url('../../assets/second/2.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 50px 50px;
+
+    background-position: center center;
+}
+
+.icon-text-second {
+    background-image: url('../../assets/second/text2.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 100px 100px;
+
+    background-position: center center;
+}
+
+.icon-image-third {
+    background-image: url('../../assets/second/3.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 50px 50px;
+
+    background-position: center center;
+}
+
+.icon-text-third {
+    background-image: url('../../assets/second/text3.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 100px 100px;
+
+    background-position: center center;
+}
+
+.button-modul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 30px;
+}
+
+.button {
+    background-image: url('../../assets/second/button.svg');
+
+    width: 100%;
+    height: 50px;
+
+    background-size: 250px 250px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+}

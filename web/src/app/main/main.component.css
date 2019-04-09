@@ -1,0 +1,337 @@
+.main-container-main {
+    background: black;
+
+    height: 500px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+.left-main {
+    width: 40%;
+}
+
+.right-main {
+    width: 60%;
+}
+
+.posters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 100px;
+}
+
+.first-poster {
+    border: 2px solid #707070;
+    border-radius: 5px;
+
+    width: 100px;
+    height: 150px;
+}
+
+.second-poster {
+    border: 2px solid #707070;
+    border-radius: 5px;
+
+    width: 100px;
+    height: 150px;
+
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.third-poster {
+    border: 2px solid #707070;
+    border-radius: 5px;
+
+    width: 100px;
+    height: 150px;
+}
+
+.button-vote {
+
+}
+
+.smiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.smile-1 {
+    background-image: url('../../assets/main/icons/1-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-2 {
+    background-image: url('../../assets/main/icons/2-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-3 {
+    background-image: url('../../assets/main/icons/3-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-4 {
+    background-image: url('../../assets/main/icons/4-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-5 {
+    background-image: url('../../assets/main/icons/5-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-6 {
+    background-image: url('../../assets/main/icons/6-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-7 {
+    background-image: url('../../assets/main/icons/7-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-8 {
+    background-image: url('../../assets/main/icons/8-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-9 {
+    background-image: url('../../assets/main/icons/9-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-10 {
+    background-image: url('../../assets/main/icons/10-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-11 {
+    background-image: url('../../assets/main/icons/11-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-12 {
+    background-image: url('../../assets/main/icons/12-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-13 {
+    background-image: url('../../assets/main/icons/13-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-14 {
+    background-image: url('../../assets/main/icons/14-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.smile-15 {
+    background-image: url('../../assets/main/icons/15-main.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 60px 60px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    position:relative;
+}
+
+.rectangles {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.first-rectangle {
+    background-image: url('../../assets/main/white_rectangle.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 50px 50px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+}
+
+.second-rectangle {
+    background-image: url('../../assets/main/white_rectangle.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 50px 50px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+}
+
+.third-rectangle {
+    background-image: url('../../assets/main/white_rectangle.svg');
+
+    width: 30%;
+    height: 80px;
+
+    background-size: 50px 50px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+}

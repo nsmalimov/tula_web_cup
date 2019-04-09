@@ -1,0 +1,75 @@
+.main-container-buttom {
+    background: black;
+}
+
+.about-place {
+    display: flex;
+
+    flex-direction: column;
+    width: 100%;
+
+    height: 250px;
+
+    margin-top: 20px;
+}
+
+.address {
+    background-image: url('../../assets/buttom/adress.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 200px;
+
+    background-size: 300px 100px;
+
+    background-position: center center;
+}
+
+.ticket {
+    background-image: url('../../assets/buttom/ticket.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 50px;
+
+    background-size: 250px;
+
+    background-position: center center;
+}
+
+.down {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background-position: center center;
+
+    margin-top: 20px;
+}
+
+.down-logo {
+    background-image: url('../../assets/buttom/buttom-logo.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 100px;
+
+    background-position: left;
+
+    margin-left: 10px;
+}
+
+.down-vk {
+    background-image: url('../../assets/buttom/vk.svg');
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: 50px;
+
+    background-position: right;
+
+    margin-right: 10px;
+}
