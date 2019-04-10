@@ -3,19 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopComponent } from './top/top.component';
-import { ButtomComponent } from './buttom/buttom.component';
-import { SecondComponent } from './second/second.component';
-import { MainComponent } from './main/main.component';
 import { YandexAutorizationComponent } from './yandex-autorization/yandex-autorization.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopComponent,
-    ButtomComponent,
-    SecondComponent,
-    MainComponent,
     YandexAutorizationComponent
   ],
   imports: [
@@ -23,6 +15,6 @@ import { YandexAutorizationComponent } from './yandex-autorization/yandex-autori
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent, TopComponent, SecondComponent, ButtomComponent, MainComponent]
+  bootstrap: [AppComponent, YandexAutorizationComponent]
 })
 export class AppModule { }
