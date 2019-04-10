@@ -7,6 +7,7 @@ import { TopComponent } from './top/top.component';
 import { ButtomComponent } from './buttom/buttom.component';
 import { SecondComponent } from './second/second.component';
 import { MainComponent } from './main/main.component';
+import { YandexAutorizationComponent } from './yandex-autorization/yandex-autorization.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MainComponent } from './main/main.component';
     TopComponent,
     ButtomComponent,
     SecondComponent,
-    MainComponent
+    MainComponent,
+    YandexAutorizationComponent
   ],
   imports: [
     BrowserModule,
