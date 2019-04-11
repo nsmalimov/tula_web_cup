@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { serverUrl } from "../config/config";
 
 @Component({
   selector: 'app-yandex-autorization',
@@ -11,20 +13,31 @@ export class YandexAutorizationComponent implements OnInit {
       '&client_id=5a58fbfa8c2e413091acf54202975c48' +
       '&redirect_uri=http://localhost:4200';
 
-  constructor() {
+  constructor(private http: HttpClient) {
     if (document.location.hash) {
       var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
 
-      // todo: сохранить в базе как авторизованного
-      console.log(token);
+      this.createUser(token);
     }
   }
 
   ngOnInit() {
   }
 
-  public initYandexAutorization(){
+  public initYandexAutorization() {
     window.open(this.yandexAuthUrl, '_blank');
   }
 
+  createUser(token: string) {
+    var url = serverUrl + "/users/" + token;
+
+    console.log(url);
+
+    this.http.post(url, {})
+        .subscribe(
+            data => console.log(data),
+            err => console.log(err),
+            () => console.log('done')
+        );
+  }
 }
