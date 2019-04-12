@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { serverUrl, yandexDiskUrl } from "../config/config";
+import { serverUrl, yandexDiskUrl, yandexDiskRedirectUrl } from "../config/config";
 
 @Component({
   selector: 'app-yandex-autorization',
@@ -11,19 +11,24 @@ export class YandexAutorizationComponent implements OnInit {
   yandexAuthUrl = 'https://oauth.yandex.ru/authorize?' +
       'response_type=token' +
       '&client_id=5a58fbfa8c2e413091acf54202975c48' +
-      '&redirect_uri=http://localhost:4200';
+      '&redirect_uri=' + yandexDiskRedirectUrl;
+
+  userToken = null;
 
   constructor(private http: HttpClient) {
-    if (document.location.hash) {
-      var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
-
-      this.createUser(token);
-
-      this.getImagesFromUserYandexDisk(token)
-    }
   }
 
   ngOnInit() {
+    if (document.location.hash) {
+      var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
+
+      // todo: from cookies
+      this.userToken = token;
+
+      this.createUser(token);
+
+      this.getImagesFromUserYandexDisk(token);
+    }
   }
 
   public initYandexAutorization() {
@@ -41,6 +46,24 @@ export class YandexAutorizationComponent implements OnInit {
         );
   }
 
+  parseYandexDiskResponse(yandexResponseObject) {
+    var yandexDiskImageItems = yandexResponseObject._embedded.items;
+
+    var updateImagesRequest = {
+      "images": [],
+    };
+
+    yandexDiskImageItems.forEach(function(item) {
+      updateImagesRequest.images.push({
+        "image_name": item.name,
+        "image_url": item.file,
+        "resource_id": item.resource_id,
+      })
+    });
+
+    this.updateImages(updateImagesRequest)
+  }
+
   getImagesFromUserYandexDisk(token: string) {
     var url = yandexDiskUrl;
 
@@ -48,26 +71,29 @@ export class YandexAutorizationComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': 'OAuth ' + token,
     });
+
     let options = {
       headers: headers
     };
 
     this.http.get(url, options)
         .subscribe(
-            data => console.log(data),
+            data => this.parseYandexDiskResponse(data),
             err => console.log(err),
-            () => console.log('done')
+            () => {}
         );
   }
 
-  updateImages(token: string) {
-    var url = serverUrl + "/users/" + token;
+  updateImages(updateImagesRequest) {
+    var url = serverUrl + "/images/" + this.userToken;
 
-    this.http.post(url, {})
+    console.log(url);
+
+    this.http.post(url, updateImagesRequest)
         .subscribe(
-            data => console.log(data),
+            data => {},
             err => console.log(err),
-            () => console.log('done')
+            () => console.log("user images updated")
         );
   }
 }

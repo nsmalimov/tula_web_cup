@@ -1,0 +1,7 @@
+.component-yandex-autorization {
+    border-style: double; /* Стиль линии вокруг параграфа */
+    padding: 5px; /* Поля вокруг текста */
+    border-color: red;
+
+    height: 20px;
+}
