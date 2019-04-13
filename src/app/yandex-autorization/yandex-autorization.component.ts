@@ -1,99 +1,136 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { serverUrl, yandexDiskUrl, yandexDiskRedirectUrl } from "../config/config";
+import { CookieService } from "ngx-cookie-service";
+import { SharedService } from '../shared.service';
 
 @Component({
-  selector: 'app-yandex-autorization',
-  templateUrl: "yandex-autorization.component.html",
-  styleUrls: ["yandex-autorization.component.css"]
+    selector: "app-yandex-autorization",
+    templateUrl: "yandex-autorization.component.html",
+    styleUrls: ["yandex-autorization.component.css"]
 })
 export class YandexAutorizationComponent implements OnInit {
-  yandexAuthUrl = 'https://oauth.yandex.ru/authorize?' +
-      'response_type=token' +
-      '&client_id=5a58fbfa8c2e413091acf54202975c48' +
-      '&redirect_uri=' + yandexDiskRedirectUrl;
+    yandexAuthUrl = "https://oauth.yandex.ru/authorize?" +
+        "response_type=token" +
+        "&client_id=5a58fbfa8c2e413091acf54202975c48" +
+        "&redirect_uri=" + yandexDiskRedirectUrl;
 
-  userToken = null;
+    userToken = null;
 
-  constructor(private http: HttpClient) {
-  }
+    ss = null;
 
-  ngOnInit() {
-    if (document.location.hash) {
-      var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
-
-      // todo: from cookies
-      this.userToken = token;
-
-      this.createUser(token);
-
-      this.getImagesFromUserYandexDisk(token);
+    constructor(private http: HttpClient,
+                private cookieService: CookieService,
+                ss: SharedService) {
+        this.ss = ss;
     }
-  }
 
-  public initYandexAutorization() {
-    window.open(this.yandexAuthUrl, "_self");
-  }
+    sentDataToMainComponent(data) {
+        this.ss.send(data);
+    }
 
-  createUser(token: string) {
-    var url = serverUrl + "/users/" + token;
+    ngOnInit() {
+        this.userToken = this.cookieService.get("Token");
 
-    this.http.post(url, {})
-        .subscribe(
-            data => console.log(data),
-            err => console.log(err),
-            () => console.log('done')
-        );
-  }
+        if (this.userToken) {
+            console.log("Authorized, cookie", this.userToken);
 
-  parseYandexDiskResponse(yandexResponseObject) {
-    var yandexDiskImageItems = yandexResponseObject._embedded.items;
+            if (document.location.hash) {
+                document.location.replace(yandexDiskRedirectUrl);
+            }
+            // может быть их много ...
+            this.getImagesFromUserYandexDisk();
+        } else {
+            if (document.location.hash) {
+                this.userToken = /access_token=([^&]+)/.exec(document.location.hash)[1];
 
-    var updateImagesRequest = {
-      "images": [],
-    };
+                this.cookieService.set("Token", this.userToken);
 
-    yandexDiskImageItems.forEach(function(item) {
-      updateImagesRequest.images.push({
-        "image_name": item.name,
-        "image_url": item.file,
-        "resource_id": item.resource_id,
-      })
-    });
+                console.log("Authorized by service");
 
-    this.updateImages(updateImagesRequest)
-  }
+                document.location.replace(yandexDiskRedirectUrl);
 
-  getImagesFromUserYandexDisk(token: string) {
-    var url = yandexDiskUrl;
+                this.createUser();
 
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'OAuth ' + token,
-    });
+                this.getImagesFromUserYandexDisk();
+            } else {
+                console.log("Not authorized")
+            }
+        }
+    }
 
-    let options = {
-      headers: headers
-    };
+    public initYandexAutorization() {
+        window.open(this.yandexAuthUrl, "_self");
+    }
 
-    this.http.get(url, options)
-        .subscribe(
-            data => this.parseYandexDiskResponse(data),
-            err => console.log(err),
-            () => {}
-        );
-  }
+    createUser() {
+        var url = serverUrl + "/users/" + this.userToken;
 
-  updateImages(updateImagesRequest) {
-    var url = serverUrl + "/images/" + this.userToken;
+        this.http.post(url, {})
+            .subscribe(
+                data => {
+                },
+                err => console.log(err),
+                () => console.log("ok, createUser"),
+            );
+    }
 
-    console.log(url);
+    parseYandexDiskResponse(yandexResponseObject) {
+        console.log('start, parseYandexDiskResponse');
 
-    this.http.post(url, updateImagesRequest)
-        .subscribe(
-            data => {},
-            err => console.log(err),
-            () => console.log("user images updated")
-        );
-  }
+        var yandexDiskImageItems = yandexResponseObject._embedded.items;
+
+        var updateImagesRequest = {
+            "images": [],
+        };
+
+        yandexDiskImageItems.forEach(function (item) {
+            updateImagesRequest.images.push({
+                "image_name": item.name,
+                "image_url": item.file,
+                "resource_id": item.resource_id,
+            })
+        });
+
+        this.updateImages(updateImagesRequest)
+    }
+
+    getImagesFromUserYandexDisk() {
+        console.log("start, getImagesFromUserYandexDisk");
+
+        var url = yandexDiskUrl;
+
+        url += "&limit=100";
+
+        let headers = new HttpHeaders({
+            "Content-Type": "application/json",
+            "Authorization": "OAuth " + this.userToken,
+        });
+
+        let options = {
+            headers: headers
+        };
+
+        this.http.get(url, options)
+            .subscribe(
+                data => this.parseYandexDiskResponse(data),
+                err => console.log(err),
+                () => console.log("ok, getImagesFromUserYandexDisk")
+            );
+    }
+
+    updateImages(updateImagesRequest) {
+        console.log('start, updateImages');
+
+        var url = serverUrl + "/images/" + this.userToken;
+
+        this.http.post(url, updateImagesRequest)
+            .subscribe(
+                data => this.sentDataToMainComponent("load"),
+                err => console.log(err),
+                () => function () {
+                    console.log("ok, updateImages");
+                }
+            );
+    }
 }

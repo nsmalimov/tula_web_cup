@@ -1,7 +1,36 @@
 .component-yandex-autorization {
-    border-style: double; /* Стиль линии вокруг параграфа */
-    padding: 5px; /* Поля вокруг текста */
+    border-style: double;
+    padding: 5px;
     border-color: red;
 
-    height: 20px;
+    height: 30px;
+
+    position: relative;
+}
+
+.authorized-image-yandex {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    margin-right: 10px;
+}
+
+.authorized-image-green {
+    width: 122px;
+    height: 21px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    margin-right: 10px;
+
+    border-style: solid;
+    padding: 2px;
+    border-color: gray;
 }

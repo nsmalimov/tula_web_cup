@@ -1,18 +1,26 @@
 .container-images {
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
 
     border-style: double; /* Стиль линии вокруг параграфа */
     padding: 5px; /* Поля вокруг текста */
 }
 
 .container-image {
+    margin-left: 20px;
     margin-right: 20px;
+
+    margin-bottom: 10px;
 }
 
 .image {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+
+    border-style: double; /* Стиль линии вокруг параграфа */
+    padding: 3px; /* Поля вокруг текста */
 }
 
 .component-main {
@@ -21,4 +29,11 @@
     border-color: red;
 
     margin-top: 50px;
+}
+
+.component-no-image {
+    width: 100%;
+    text-align: center;
+
+    margin-top: 20%;
 }

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { YandexAutorizationComponent } from './yandex-autorization/yandex-autorization.component';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { SharedService } from "./shared.service";
+
 
 @NgModule({
     declarations: [
@@ -18,7 +21,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
         AppRoutingModule,
         HttpClientModule
     ],
-    providers: [HttpClient],
+    providers: [HttpClient, CookieService, SharedService],
     bootstrap: [AppComponent, MainComponent, YandexAutorizationComponent]
 })
 export class AppModule {

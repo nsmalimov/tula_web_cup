@@ -1,7 +1,12 @@
 <div class="component-yandex-autorization">
-    <a>
-        <img style="float: right"
+    <a *ngIf="!userToken">
+        <img class="authorized-image-yandex"
              (click)="initYandexAutorization()"
              src="//yastatic.net/doccenter/images/tech2.yandex.ru/ru/passport/doc/dg/freeze/_2dbhiELlBN3jHKGz-uOdRXjQ5g.png">
+    </a>
+
+    <a *ngIf="userToken">
+        <img class="authorized-image-green"
+             src="https://dummyimage.com/122x21/77dd77/000000&text=Авторизован">
     </a>
 </div>
