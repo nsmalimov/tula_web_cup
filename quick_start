@@ -2,3 +2,5 @@ npm install
 npm install -g @angular/cli
 
 ng serve
+
+forever start node_modules/@angular/cli/bin/ng serve --host 37.228.118.178 --prod -- port 4201

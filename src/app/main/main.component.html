@@ -1,6 +1,8 @@
 <div *ngIf="images" class="component-main">
     <div class="container-images">
-        <div class="container-image" *ngFor="let image of images">
+        <div class="container-image"
+             *ngFor="let image of images"
+             (click)="openModal(image, images)">
             <img class="image" src="{{ image.image_url }}">
         </div>
     </div>
