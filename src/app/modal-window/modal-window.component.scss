@@ -1,0 +1,92 @@
+.main-image {
+  width: 350px;
+  height: 350px;
+
+  display: block;
+  margin: 0 auto;
+}
+
+.buttons-container {
+  display: block;
+  margin: 0 auto;
+}
+
+.main-buttons-container {
+  display: flex;
+}
+
+.arrow {
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  position: relative;
+  line-height: 2.5em;
+  padding-left: 1em;
+  padding-right: 2em;
+  background: cornflowerblue;
+  color: black;
+
+  &:after {
+    border-left: 20px solid cornflowerblue;
+  }
+}
+
+.arrow:after {
+  content: "";
+  position: absolute;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid transparent;
+  height: 0px;
+  width: 0px;
+  margin-right: -20px;
+  right: 0;
+}
+
+.arrow:hover, .arrow:active {
+  background: yellow;
+  color: black;
+
+  &:after {
+    border-left: 20px solid yellow;
+  }
+}
+
+.arrow2 {
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  margin-left: 40px;
+  position: relative;
+  line-height: 2.5em;
+  padding-left: 1em;
+  padding-right: 2em;
+  background: cornflowerblue;
+  color: black;
+
+  &:before {
+    border-right: 20px solid cornflowerblue;
+  }
+}
+
+.arrow2:before {
+  content: "";
+  position: absolute;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid transparent;
+  height: 0px;
+  width: 0px;
+  margin-left: -20px;
+  right: 0;
+  margin-right: 80px;
+}
+
+.arrow2:hover, .arrow2:active {
+  background: yellow;
+  color: black;
+
+  &:before {
+    border-right: 20px solid yellow;
+  }
+}

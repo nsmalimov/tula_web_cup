@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'ngbd-modal-content',
   templateUrl: "modal-window.component.html",
-  styleUrls: ["modal-window.component.css"]
+  styleUrls: ["modal-window.component.scss"]
 })
 export class NgbdModalContent {
   @Input() image;
