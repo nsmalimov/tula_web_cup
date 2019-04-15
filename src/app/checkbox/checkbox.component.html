@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Отсортировать</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let dropDownSortElem of dropDownSortElems"
+                        (click)="sortByParam(dropDownSortElem.sort_param)">
+                    {{ dropDownSortElem.name }}</button>
+            </div>
+        </div>
+    </div>
+</div>

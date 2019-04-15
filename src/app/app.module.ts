@@ -11,13 +11,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbdModalContent } from './modal-window/modal-window.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         YandexAutorizationComponent,
         MainComponent,
-        NgbdModalContent
+        NgbdModalContent,
+        CheckboxComponent
     ],
     imports: [
         BrowserModule,

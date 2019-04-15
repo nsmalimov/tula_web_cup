@@ -4,15 +4,23 @@
     flex-flow: wrap;
     justify-content: space-evenly;
 
-    border-style: double; /* Стиль линии вокруг параграфа */
-    padding: 5px; /* Поля вокруг текста */
+    border-style: double;
+    padding: 5px;
 }
 
 .container-image {
+    width: 270px;
+    height: 270px;
+
     margin-left: 20px;
     margin-right: 20px;
 
     margin-bottom: 10px;
+
+    border-style: double;
+    padding: 3px;
+
+    text-align: center;
 }
 
 .image {
@@ -20,17 +28,14 @@
     height: 200px;
 
     object-fit: cover;
-
-    border-style: double; /* Стиль линии вокруг параграфа */
-    padding: 3px; /* Поля вокруг текста */
 }
 
 .component-main {
-    border-style: double; /* Стиль линии вокруг параграфа */
-    padding: 5px; /* Поля вокруг текста */
+    border-style: double;
+    padding: 5px;
     border-color: red;
 
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .component-no-image {
@@ -38,4 +43,13 @@
     text-align: center;
 
     margin-top: 20%;
+}
+
+.filters {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.image-info {
+    margin-bottom: 12px;
 }

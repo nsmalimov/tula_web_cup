@@ -1,9 +1,17 @@
+<div class="filters">
+    <app-checkbox [dropDownSortElems]="dropDownSortElems"></app-checkbox>
+</div>
+
 <div *ngIf="images" class="component-main">
     <div class="container-images">
         <div class="container-image"
              *ngFor="let image of images"
              (click)="openModal(image, images)">
-            <img class="image" src="{{ image.image_url }}">
+            <div class="image-info">
+                <div>Имя: {{ image.image_name }}</div>
+                <div>Рейтинг: {{ image.rate }}</div>
+                <img class="image" src="{{ image.image_url }}">
+            </div>
         </div>
     </div>
 </div>
